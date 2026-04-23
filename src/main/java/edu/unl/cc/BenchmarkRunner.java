@@ -8,18 +8,13 @@ public class BenchmarkRunner {
     static final int WARM_UP = 2; // iteraciones de calentamiento JIT
 
     public static void main(String[] args) throws Exception {
-        System.out.println("=== BENCHMARK DE ESTRATEGIAS I/O EN JAVA ===\n");
 
-        // ── WARM-UP (evita sesgo del compilador JIT) ──
-        System.out.println("🔥 Fase Warm-Up (JIT Compilation)...");
         for (int i = 0; i < WARM_UP; i++) {
             StreamBasedIO.leerArchivo(ARCHIVO);
             NIOChannelIO.leerArchivo(ARCHIVO);
             MemoryMappedIO.leerArchivo(ARCHIVO);
         }
-        System.out.println("✅ Warm-up completado\n");
-
-        // ── MEDICIÓN OFICIAL ──
+        //medicion de tiempos
         double[] tiemposStream = new double[ITERACIONES];
         double[] tiemposNIO    = new double[ITERACIONES];
         double[] tiemposMMAP   = new double[ITERACIONES];

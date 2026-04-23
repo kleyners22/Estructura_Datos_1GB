@@ -22,7 +22,6 @@ public class ReporteMetricas {
         double mediaStream = calcularMedia(stream);
         double mediaNIO    = calcularMedia(nio);
         double mediaMMAP   = calcularMedia(mmap);
-
         System.out.println("╔═════════════════════════════════════════════════╗");
         System.out.println("║         COMPARACIÓN FINAL DE MÉTODOS           ║");
         System.out.println("╠═════════════════════════════════════════════════╣");
@@ -37,13 +36,11 @@ public class ReporteMetricas {
         System.out.printf( "║ 🏆 Método más eficiente: %-23s║%n", ganador);
         System.out.println("╚═════════════════════════════════════════════════╝");
     }
-
     static double calcularMedia(double[] datos) {
         double suma = 0;
         for (double v : datos) suma += v;
         return suma / datos.length;
     }
-
     static double calcularDesviacion(double[] datos, double media) {
         double suma = 0;
         for (double v : datos) suma += Math.pow(v - media, 2);
